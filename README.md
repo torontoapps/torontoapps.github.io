@@ -170,10 +170,6 @@ tbody tr:hover td { background:#1a2030; }
     </tbody>
   </table>
 
-  <footer>
-    Audio sources: Wikimedia Commons pronunciation recordings (free licenses). Tip: for best results, serve this file over HTTP (e.g. <code>python -m http.server</code>) instead of opening via <code>file://</code>.
-  </footer>
-
   <script>
     (function () {
       const buttons = Array.from(document.querySelectorAll('button[data-audio-id]'));
