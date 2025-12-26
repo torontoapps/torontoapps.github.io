@@ -42,12 +42,22 @@
     }
     tbody tr:last-child td{ border-bottom:none; }
 
-    /* alternating row colors */
+    /* alternating row colors 
     tbody tr:nth-child(odd){ background:#141922; }
     tbody tr:nth-child(even){ background:#101521; }
-
-    /* optional hover (still dark) */
+    */
+    /* optional hover (still dark)
     tbody tr:hover{ background:#1a2030; }
+    */
+
+    /* alternating row colors (applied to the cells for reliability) */
+tbody tr:nth-child(odd) td  { background:#141922; }
+tbody tr:nth-child(even) td { background:#101521; }
+
+/* hover */
+tbody tr:hover td { background:#1a2030; }
+
+
 
     .word{ font-weight:750; font-size:16px; color:#f0f3ff; }
     .muted{ color:#b7bfd6; font-size:13px; }
