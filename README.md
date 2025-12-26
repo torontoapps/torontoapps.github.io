@@ -5,32 +5,71 @@
   <title>Spelling Bee Practice – Pronunciation Table</title>
   <style>
     :root { color-scheme: dark; }
-    body { color-scheme: dark; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 24px; }
+
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin: 24px;
+      background: #0b1020;
+      color: #e9ecf5;
+    }
+
     h1 { margin: 0 0 6px; font-size: 22px; }
-    p { margin: 0 0 16px; color: #444; }
-    table { color-scheme: dark; width: 100%; border-collapse: collapse; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; }
-    thead th { background: #f6f6f6; text-align: left; font-weight: 650; padding: 12px; border-bottom: 1px solid #ddd; }
-    tbody td { padding: 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    p { margin: 0 0 16px; color: #b7bfd6; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(18,26,51,.82);
+    }
+
+    thead th {
+      background: rgba(255,255,255,.04);
+      text-align: left;
+      font-weight: 650;
+      padding: 12px;
+      border-bottom: 1px solid rgba(255,255,255,.14);
+      color: #b7bfd6;
+    }
+
+    tbody td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      vertical-align: top;
+    }
+
     tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: rgba(255,255,255,.03); }
+
     .word { font-weight: 750; font-size: 16px; }
-    .muted { color: #666; font-size: 13px; }
+    .muted { color: #b7bfd6; font-size: 13px; }
+
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 10px; border: 1px solid #ccc; border-radius: 10px;
-      background: white; cursor: pointer; user-select: none;
+      padding: 8px 10px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 12px;
+      background: rgba(255,255,255,.04);
+      cursor: pointer; user-select: none;
       font-weight: 600;
+      color: #e9ecf5;
     }
-    .btn:hover { background: #fafafa; }
+    .btn:hover { background: rgba(255,255,255,.06); }
     .btn:active { transform: translateY(1px); }
-    .btn[aria-pressed="true"] { border-color: #888; }
-    .btn:focus { outline: 3px solid rgba(0,0,0,0.15); outline-offset: 2px; }
+    .btn[aria-pressed="true"] { border-color: rgba(255,255,255,.24); }
+    .btn:focus { outline: 3px solid rgba(122,167,255,.35); outline-offset: 2px; border-radius: 12px; }
+
     .audio-hidden { width: 1px; height: 1px; position: absolute; left: -9999px; }
+
     .col-word { width: 18%; }
     .col-meaning { width: 42%; }
     .col-pos { width: 16%; }
     .col-audio { width: 24%; }
-    footer { margin-top: 14px; font-size: 12px; color: #666; }
-    code { background: #f6f6f6; padding: 2px 6px; border-radius: 6px; }
+
+    footer { margin-top: 14px; font-size: 12px; color: #b7bfd6; }
+    code { background: rgba(255,255,255,.06); padding: 2px 6px; border-radius: 10px; }
   </style>
 </head>
 <body>
@@ -60,7 +99,6 @@
           <span class="muted">US pronunciation</span>
 
           <audio class="audio-hidden" preload="none" id="audio-ruminate" controlsList="nodownload">
-            <!-- MP3 first for widest compatibility -->
             <source type="audio/mpeg" src="https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/En-us-ruminate.ogg/En-us-ruminate.ogg.mp3">
             <source type="audio/ogg"  src="https://upload.wikimedia.org/wikipedia/commons/d/db/En-us-ruminate.ogg">
             Your browser doesn't support HTML5 audio.
@@ -133,9 +171,6 @@
   </footer>
 
   <script>
-    // Simple player behavior:
-    // - Clicking Play pauses any other playing audio
-    // - Button text toggles Play / Pause
     (function () {
       const buttons = Array.from(document.querySelectorAll('button[data-audio-id]'));
 
@@ -163,11 +198,9 @@
         btn.addEventListener('click', async () => {
           if (!audioEl) return;
 
-          // Ensure others stop before playing this one
           stopAllExcept(audioEl);
 
           if (audioEl.paused) {
-            // Load on-demand (like Cambridge does) so page doesn't fetch audio until needed
             audioEl.load();
 
             try {
@@ -175,7 +208,6 @@
               btn.setAttribute('aria-pressed', 'true');
               btn.textContent = '⏸ Pause';
             } catch (e) {
-              // Autoplay restrictions or other playback issues
               btn.setAttribute('aria-pressed', 'false');
               btn.textContent = '▶ Play';
               console.warn('Audio play blocked or failed:', e);
