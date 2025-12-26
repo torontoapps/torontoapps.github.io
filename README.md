@@ -5,70 +5,79 @@
   <title>Spelling Bee Practice – Pronunciation Table</title>
   <style>
     :root { color-scheme: dark; }
-    body {
+
+    body{
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       margin: 24px;
-      background: #0b1020;
-      color: #e9ecf5;
+      background:#0b1020;
+      color:#e9ecf5;
     }
 
-    h1 { margin: 0 0 6px; font-size: 22px; }
-    p { margin: 0 0 16px; color: #b7bfd6; }
+    h1{ margin:0 0 6px; font-size:22px; }
+    p{ margin:0 0 16px; color:#b7bfd6; }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 16px;
-      overflow: hidden;
-      background: rgba(18,26,51,.82);
+    /* TABLE: dark grey + rounded + alternating rows */
+    table{
+      width:100%;
+      border-collapse:separate;       /* allow rounded corners reliably */
+      border-spacing:0;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:16px;
+      overflow:hidden;
+      background:#141922;             /* dark grey base */
     }
 
-    thead th {
-      background: rgba(255,255,255,.04);
-      text-align: left;
-      font-weight: 650;
-      padding: 12px;
-      border-bottom: 1px solid rgba(255,255,255,.14);
-      color: #b7bfd6;
+    thead th{
+      background:#1b2230;             /* darker header band */
+      color:#d6dbea;
+      text-align:left;
+      font-weight:650;
+      padding:12px;
+      border-bottom:1px solid rgba(255,255,255,.14);
     }
 
-    tbody td {
-      padding: 12px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      vertical-align: top;
+    tbody td{
+      padding:12px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      vertical-align:top;
+      color:#e9ecf5;
     }
+    tbody tr:last-child td{ border-bottom:none; }
 
-    tbody tr:last-child td { border-bottom: none; }
-    tbody tr:hover { background: rgba(255,255,255,.03); }
+    /* alternating row colors */
+    tbody tr:nth-child(odd){ background:#141922; }
+    tbody tr:nth-child(even){ background:#101521; }
 
-    .word { font-weight: 750; font-size: 16px; }
-    .muted { color: #b7bfd6; font-size: 13px; }
+    /* optional hover (still dark) */
+    tbody tr:hover{ background:#1a2030; }
 
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 10px;
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 12px;
-      background: rgba(255,255,255,.04);
-      cursor: pointer; user-select: none;
-      font-weight: 600;
-      color: #e9ecf5;
+    .word{ font-weight:750; font-size:16px; color:#f0f3ff; }
+    .muted{ color:#b7bfd6; font-size:13px; }
+
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:12px;
+      background:rgba(255,255,255,.06);
+      cursor:pointer; user-select:none;
+      font-weight:600;
+      color:#e9ecf5;
     }
-    .btn:hover { background: rgba(255,255,255,.06); }
-    .btn:active { transform: translateY(1px); }
-    .btn[aria-pressed="true"] { border-color: rgba(255,255,255,.24); }
-    .btn:focus { outline: 3px solid rgba(122,167,255,.35); outline-offset: 2px; border-radius: 12px; }
+    .btn:hover{ background:rgba(255,255,255,.09); }
+    .btn:active{ transform:translateY(1px); }
+    .btn[aria-pressed="true"]{ border-color:rgba(255,255,255,.28); }
+    .btn:focus{ outline:3px solid rgba(122,167,255,.35); outline-offset:2px; }
 
-    .audio-hidden { width: 1px; height: 1px; position: absolute; left: -9999px; }
+    .audio-hidden{ width:1px; height:1px; position:absolute; left:-9999px; }
 
-    .col-word { width: 18%; }
-    .col-meaning { width: 42%; }
-    .col-pos { width: 16%; }
-    .col-audio { width: 24%; }
+    .col-word{ width:18%; }
+    .col-meaning{ width:42%; }
+    .col-pos{ width:16%; }
+    .col-audio{ width:24%; }
 
-    footer { margin-top: 14px; font-size: 12px; color: #b7bfd6; }
-    code { background: rgba(255,255,255,.06); padding: 2px 6px; border-radius: 10px; }
+    footer{ margin-top:14px; font-size:12px; color:#b7bfd6; }
+    code{ background:rgba(255,255,255,.06); padding:2px 6px; border-radius:10px; color:#e9ecf5; }
   </style>
 </head>
 <body>
@@ -92,11 +101,8 @@
         <td>To think deeply about something; to “chew over” an idea in your mind.</td>
         <td>verb</td>
         <td>
-          <button class="btn" type="button" data-audio-id="audio-ruminate" aria-pressed="false">
-            ▶ Play
-          </button>
+          <button class="btn" type="button" data-audio-id="audio-ruminate" aria-pressed="false">▶ Play</button>
           <span class="muted">US pronunciation</span>
-
           <audio class="audio-hidden" preload="none" id="audio-ruminate" controlsList="nodownload">
             <source type="audio/mpeg" src="https://upload.wikimedia.org/wikipedia/commons/transcoded/d/db/En-us-ruminate.ogg/En-us-ruminate.ogg.mp3">
             <source type="audio/ogg"  src="https://upload.wikimedia.org/wikipedia/commons/d/db/En-us-ruminate.ogg">
@@ -111,11 +117,8 @@
         <td>To work together with one or more people to create or achieve something.</td>
         <td>verb</td>
         <td>
-          <button class="btn" type="button" data-audio-id="audio-collaborate" aria-pressed="false">
-            ▶ Play
-          </button>
+          <button class="btn" type="button" data-audio-id="audio-collaborate" aria-pressed="false">▶ Play</button>
           <span class="muted">US pronunciation</span>
-
           <audio class="audio-hidden" preload="none" id="audio-collaborate" controlsList="nodownload">
             <source type="audio/mpeg" src="https://upload.wikimedia.org/wikipedia/commons/transcoded/7/70/En-us-collaborate.ogg/En-us-collaborate.ogg.mp3">
             <source type="audio/ogg"  src="https://upload.wikimedia.org/wikipedia/commons/7/70/En-us-collaborate.ogg">
@@ -130,11 +133,8 @@
         <td>A piece of land that sticks out into water, surrounded by water on three sides.</td>
         <td>noun</td>
         <td>
-          <button class="btn" type="button" data-audio-id="audio-peninsula" aria-pressed="false">
-            ▶ Play
-          </button>
+          <button class="btn" type="button" data-audio-id="audio-peninsula" aria-pressed="false">▶ Play</button>
           <span class="muted">US pronunciation</span>
-
           <audio class="audio-hidden" preload="none" id="audio-peninsula" controlsList="nodownload">
             <source type="audio/mpeg" src="https://upload.wikimedia.org/wikipedia/commons/transcoded/1/12/En-us-peninsula.ogg/En-us-peninsula.ogg.mp3">
             <source type="audio/ogg"  src="https://upload.wikimedia.org/wikipedia/commons/1/12/En-us-peninsula.ogg">
@@ -143,17 +143,14 @@
         </td>
       </tr>
 
-      <!-- prairies (uses prairie audio) -->
+      <!-- prairies -->
       <tr>
         <td class="word">prairies</td>
         <td>Large, open areas of flat grassland (plural of <i>prairie</i>).</td>
         <td>noun (plural)</td>
         <td>
-          <button class="btn" type="button" data-audio-id="audio-prairie" aria-pressed="false">
-            ▶ Play
-          </button>
+          <button class="btn" type="button" data-audio-id="audio-prairie" aria-pressed="false">▶ Play</button>
           <span class="muted">Uses “prairie” pronunciation</span>
-
           <audio class="audio-hidden" preload="none" id="audio-prairie" controlsList="nodownload">
             <source type="audio/mpeg" src="https://upload.wikimedia.org/wikipedia/commons/transcoded/8/85/En-us-prairie.ogg/En-us-prairie.ogg.mp3">
             <source type="audio/ogg"  src="https://upload.wikimedia.org/wikipedia/commons/8/85/En-us-prairie.ogg">
@@ -201,7 +198,6 @@
 
           if (audioEl.paused) {
             audioEl.load();
-
             try {
               await audioEl.play();
               btn.setAttribute('aria-pressed', 'true');
