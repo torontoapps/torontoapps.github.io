@@ -1,6 +1,5 @@
-<!doctype html>
-<html lang="en">
+<html>
 <body>
-  SOMETHING
+  <p>SOMETHING</p>
 </body>
 </html>
