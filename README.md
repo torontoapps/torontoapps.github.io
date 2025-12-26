@@ -11,7 +11,6 @@
       background:#0b1020;
       color:#e9ecf5;
     }
-
     h1{ margin:0 0 6px; font-size:22px; }
     p{ margin:0 0 16px; color:#b7bfd6; }
 
