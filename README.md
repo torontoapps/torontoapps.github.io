@@ -57,6 +57,7 @@
       outline: none;
     }
     .search::placeholder { color: rgba(233,236,245,.55); }
+
     .pill {
       font-size: 12px;
       color: var(--muted);
@@ -177,18 +178,14 @@
             <th style="width: 20%;">Pronunciation</th>
           </tr>
         </thead>
+
         <tbody id="rows">
           <tr>
+            <td><div class="word">ruminate</div></td>
+            <td><span class="pos">verb</span></td>
+            <td>To think carefully for a long time about something.</td>
             <td>
-              <div class="word">ruminate</div>
-            </td>
-            <td>
-              <span class="pos">verb</span>
-            </td>
-            <td>
-              To think carefully for a long time about something.
-            </td>
-            <td>
+              <!-- Audio pronunciation page (includes play button) -->
               <a class="audio-link" href="https://dictionary.cambridge.org/pronunciation/english/ruminate" target="_blank" rel="noopener noreferrer">
                 🔊 Listen
               </a>
@@ -196,15 +193,9 @@
           </tr>
 
           <tr>
-            <td>
-              <div class="word">collaborate</div>
-            </td>
-            <td>
-              <span class="pos">verb</span>
-            </td>
-            <td>
-              To work with someone else for a special purpose (to create or achieve something together).
-            </td>
+            <td><div class="word">collaborate</div></td>
+            <td><span class="pos">verb</span></td>
+            <td>To work with someone else for a special purpose (to create or achieve something together).</td>
             <td>
               <a class="audio-link" href="https://dictionary.cambridge.org/pronunciation/english/collaborate" target="_blank" rel="noopener noreferrer">
                 🔊 Listen
@@ -213,15 +204,9 @@
           </tr>
 
           <tr>
-            <td>
-              <div class="word">peninsula</div>
-            </td>
-            <td>
-              <span class="pos">noun</span>
-            </td>
-            <td>
-              A piece of land that sticks out from a larger area of land and is surrounded by water on most sides.
-            </td>
+            <td><div class="word">peninsula</div></td>
+            <td><span class="pos">noun</span></td>
+            <td>A piece of land that sticks out from a larger area of land and is surrounded by water on most sides.</td>
             <td>
               <a class="audio-link" href="https://dictionary.cambridge.org/pronunciation/english/peninsula" target="_blank" rel="noopener noreferrer">
                 🔊 Listen
@@ -230,16 +215,11 @@
           </tr>
 
           <tr>
+            <td><div class="word">prairies</div></td>
+            <td><span class="pos">noun (plural)</span></td>
+            <td>Wide areas of flat land without trees (especially in Canada and the northern U.S.).</td>
             <td>
-              <div class="word">prairies</div>
-            </td>
-            <td>
-              <span class="pos">noun (plural)</span>
-            </td>
-            <td>
-              Wide areas of flat land without trees (especially in Canada and the northern U.S.).
-            </td>
-            <td>
+              <!-- Use singular base word for pronunciation -->
               <a class="audio-link" href="https://dictionary.cambridge.org/pronunciation/english/prairie" target="_blank" rel="noopener noreferrer">
                 🔊 Listen
               </a>
@@ -250,7 +230,7 @@
     </div>
 
     <div class="footer">
-      Tip: Students can open the audio link in a new tab, press play, then practice spelling the word out loud.
+      Tip: Open the “Listen” link, play the audio, then practice spelling the word out loud.
     </div>
   </div>
 
