@@ -5,10 +5,10 @@
   <title>Spelling Bee Practice – Pronunciation Table</title>
   <style>
     :root { color-scheme: dark; }
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 24px; }
+    body { color-scheme: dark; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 24px; }
     h1 { margin: 0 0 6px; font-size: 22px; }
     p { margin: 0 0 16px; color: #444; }
-    table { width: 100%; border-collapse: collapse; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; }
+    table { color-scheme: dark; width: 100%; border-collapse: collapse; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; }
     thead th { background: #f6f6f6; text-align: left; font-weight: 650; padding: 12px; border-bottom: 1px solid #ddd; }
     tbody td { padding: 12px; border-bottom: 1px solid #eee; vertical-align: top; }
     tbody tr:last-child td { border-bottom: none; }
